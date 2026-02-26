@@ -1,0 +1,280 @@
+.chatWidget {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  gap: 0;
+}
+
+.header {
+  display: flex;
+  gap: 8px;
+  padding: 10px 12px;
+  background: rgba(0, 30, 60, 0.7);
+  border-bottom: 1px solid rgba(0, 255, 255, 0.3);
+}
+
+.modelSelector {
+  flex: 1;
+  padding: 6px 10px;
+  background: rgba(0, 50, 100, 0.5);
+  border: 1px solid rgba(0, 255, 255, 0.4);
+  border-radius: 4px;
+  color: rgba(0, 255, 255, 0.95);
+  font-size: 13px;
+  outline: none;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.modelSelector:hover:not(:disabled) {
+  border-color: rgba(0, 255, 255, 0.6);
+  background: rgba(0, 70, 120, 0.6);
+}
+
+.modelSelector:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.clearButton {
+  padding: 6px 14px;
+  background: rgba(150, 0, 0, 0.4);
+  border: 1px solid rgba(255, 100, 100, 0.5);
+  border-radius: 4px;
+  color: rgba(255, 150, 150, 0.95);
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.clearButton:hover:not(:disabled) {
+  background: rgba(180, 0, 0, 0.6);
+  border-color: rgba(255, 100, 100, 0.8);
+  box-shadow: 0 0 10px rgba(255, 100, 100, 0.3);
+}
+
+.clearButton:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.errorBanner {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 12px;
+  background: rgba(200, 0, 0, 0.3);
+  border: 1px solid rgba(255, 100, 100, 0.5);
+  border-left: 4px solid rgba(255, 100, 100, 0.8);
+  color: rgba(255, 200, 200, 0.95);
+  font-size: 13px;
+  animation: slideDown 0.3s ease-out;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.errorIcon {
+  font-size: 16px;
+  color: rgba(255, 150, 150, 1);
+}
+
+.messagesContainer {
+  flex: 1;
+  overflow-y: auto;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.messagesContainer::-webkit-scrollbar {
+  width: 6px;
+}
+
+.messagesContainer::-webkit-scrollbar-track {
+  background: rgba(0, 50, 100, 0.3);
+  border-radius: 3px;
+}
+
+.messagesContainer::-webkit-scrollbar-thumb {
+  background: rgba(0, 255, 255, 0.4);
+  border-radius: 3px;
+}
+
+.messagesContainer::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 255, 255, 0.6);
+}
+
+.message {
+  display: flex;
+  animation: fadeIn 0.3s ease-in;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.userMessage {
+  justify-content: flex-end;
+}
+
+.aiMessage {
+  justify-content: flex-start;
+}
+
+.messageContent {
+  max-width: 75%;
+  padding: 10px 14px;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.userMessage .messageContent {
+  background: rgba(0, 150, 255, 0.3);
+  border: 1px solid rgba(0, 150, 255, 0.5);
+}
+
+.aiMessage .messageContent {
+  background: rgba(0, 255, 200, 0.2);
+  border: 1px solid rgba(0, 255, 200, 0.4);
+}
+
+.messageText {
+  color: rgba(255, 255, 255, 0.95);
+  font-size: 14px;
+  line-height: 1.4;
+  word-wrap: break-word;
+  white-space: pre-wrap;
+}
+
+.cursor {
+  display: inline-block;
+  margin-left: 2px;
+  color: rgba(0, 255, 255, 0.9);
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+  0%, 49% {
+    opacity: 1;
+  }
+  50%, 100% {
+    opacity: 0;
+  }
+}
+
+.messageTime {
+  font-size: 11px;
+  color: rgba(0, 255, 255, 0.5);
+  text-align: right;
+}
+
+.thinkingContainer {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px;
+  animation: fadeIn 0.3s ease-in;
+}
+
+.thinkingText {
+  color: rgba(0, 255, 255, 0.8);
+  font-size: 14px;
+  font-style: italic;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 0.6;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+.inputContainer {
+  display: flex;
+  gap: 8px;
+  padding: 12px;
+  background: rgba(0, 30, 60, 0.5);
+  border-top: 1px solid rgba(0, 255, 255, 0.3);
+}
+
+.input {
+  flex: 1;
+  padding: 10px 12px;
+  background: rgba(0, 50, 100, 0.5);
+  border: 1px solid rgba(0, 255, 255, 0.4);
+  border-radius: 4px;
+  color: rgba(255, 255, 255, 0.95);
+  font-size: 14px;
+  outline: none;
+  transition: all 0.3s;
+}
+
+.input::placeholder {
+  color: rgba(0, 255, 255, 0.4);
+}
+
+.input:focus:not(:disabled) {
+  border-color: rgba(0, 255, 255, 0.7);
+  background: rgba(0, 70, 120, 0.6);
+  box-shadow: 0 0 10px rgba(0, 255, 255, 0.3);
+}
+
+.input:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.sendButton {
+  padding: 10px 20px;
+  background: rgba(0, 150, 200, 0.6);
+  border: 1px solid rgba(0, 255, 255, 0.5);
+  border-radius: 4px;
+  color: rgba(0, 255, 255, 0.95);
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.sendButton:hover:not(:disabled) {
+  background: rgba(0, 180, 220, 0.8);
+  border-color: rgba(0, 255, 255, 0.8);
+  box-shadow: 0 0 15px rgba(0, 255, 255, 0.4);
+}
+
+.sendButton:active:not(:disabled) {
+  transform: scale(0.98);
+}
+
+.sendButton:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  background: rgba(0, 100, 150, 0.4);
+}

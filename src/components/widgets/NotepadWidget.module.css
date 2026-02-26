@@ -1,0 +1,96 @@
+.notepadWidget {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  gap: 12px;
+}
+
+.toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 12px;
+  background: rgba(0, 50, 100, 0.4);
+  border: 1px solid rgba(0, 255, 255, 0.3);
+  border-radius: 4px;
+}
+
+.stats {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+}
+
+.stat {
+  color: rgba(0, 255, 255, 0.8);
+  font-family: 'Courier New', monospace;
+}
+
+.separator {
+  color: rgba(0, 255, 255, 0.4);
+}
+
+.clearButton {
+  padding: 4px 12px;
+  background: rgba(255, 80, 80, 0.3);
+  border: 1px solid rgba(255, 80, 80, 0.5);
+  border-radius: 3px;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 11px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.clearButton:hover {
+  background: rgba(255, 80, 80, 0.5);
+  border-color: rgba(255, 80, 80, 0.8);
+  box-shadow: 0 0 10px rgba(255, 80, 80, 0.3);
+}
+
+.textarea {
+  flex: 1;
+  padding: 12px;
+  background: rgba(0, 30, 60, 0.5);
+  border: 1px solid rgba(0, 255, 255, 0.3);
+  border-radius: 4px;
+  color: rgba(255, 255, 255, 0.95);
+  font-size: 14px;
+  font-family: 'Courier New', monospace;
+  line-height: 1.6;
+  resize: none;
+  outline: none;
+  transition: all 0.3s;
+}
+
+.textarea::placeholder {
+  color: rgba(0, 255, 255, 0.4);
+}
+
+.textarea:focus {
+  border-color: rgba(0, 255, 255, 0.6);
+  background: rgba(0, 50, 100, 0.6);
+  box-shadow: 0 0 15px rgba(0, 255, 255, 0.2);
+}
+
+/* Custom scrollbar for textarea */
+.textarea::-webkit-scrollbar {
+  width: 8px;
+}
+
+.textarea::-webkit-scrollbar-track {
+  background: rgba(0, 50, 100, 0.3);
+  border-radius: 4px;
+}
+
+.textarea::-webkit-scrollbar-thumb {
+  background: rgba(0, 255, 255, 0.4);
+  border-radius: 4px;
+}
+
+.textarea::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 255, 255, 0.6);
+}

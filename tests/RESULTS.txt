@@ -1,0 +1,22 @@
+
+[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m
+[0;34m🚀 NEXUSHUD SMOKE TEST SUITE[0m
+[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m
+
+[1;33mℹ INFO[0m - Starting comprehensive test suite...
+[1;33mℹ INFO[0m - Project directory: /data/.openclaw/workspace/app
+
+[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m
+[0;34mTEST 1: Build Process[0m
+[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m
+
+[1;33mℹ INFO[0m - Running npm run build...
+[0;31m✗ FAIL[0m - Build failed
+  [0;31mError:[0m 
+> nexushud@0.1.0 build
+> tsc && vite build
+
+src/App.tsx(1,1): error TS6192: All imports in import declaration are unused.
+src/App.tsx(9,1): error TS6133: 'Welcome' is declared but its value is never read.
+src/App.tsx(12,1): error TS6133: 'LoadingScreen' is declared but its value is never read.
+src/App.tsx(13,1): error TS6133: 'HudOverlay' is declared but its value is never read.

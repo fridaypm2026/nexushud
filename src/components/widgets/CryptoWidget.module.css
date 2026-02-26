@@ -1,0 +1,94 @@
+.cryptoWidget {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 12px;
+  height: 100%;
+}
+
+.loading,
+.error {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  color: rgba(0, 255, 255, 0.7);
+  font-size: 14px;
+}
+
+.error {
+  color: rgba(255, 100, 100, 0.9);
+}
+
+.cryptoItem {
+  background: rgba(0, 50, 100, 0.3);
+  border: 1px solid rgba(0, 255, 255, 0.2);
+  border-radius: 4px;
+  padding: 12px;
+  transition: all 0.3s;
+}
+
+.cryptoItem:hover {
+  background: rgba(0, 70, 120, 0.4);
+  border-color: rgba(0, 255, 255, 0.4);
+  box-shadow: 0 0 10px rgba(0, 255, 255, 0.2);
+}
+
+.cryptoHeader {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.symbol {
+  font-size: 18px;
+  font-weight: 700;
+  color: rgba(0, 255, 255, 0.9);
+  text-shadow: 0 0 5px rgba(0, 255, 255, 0.5);
+}
+
+.name {
+  font-size: 12px;
+  color: rgba(0, 255, 255, 0.6);
+}
+
+.priceRow {
+  margin-bottom: 4px;
+}
+
+.price {
+  font-size: 24px;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.95);
+  font-family: 'Courier New', monospace;
+  text-shadow: 0 0 5px rgba(255, 255, 255, 0.3);
+}
+
+.changeRow {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.change {
+  font-size: 16px;
+  font-weight: 600;
+  font-family: 'Courier New', monospace;
+}
+
+.change.positive {
+  color: rgba(0, 255, 100, 0.9);
+  text-shadow: 0 0 5px rgba(0, 255, 100, 0.5);
+}
+
+.change.negative {
+  color: rgba(255, 80, 80, 0.9);
+  text-shadow: 0 0 5px rgba(255, 80, 80, 0.5);
+}
+
+.changeLabel {
+  font-size: 11px;
+  color: rgba(0, 255, 255, 0.5);
+  text-transform: uppercase;
+}

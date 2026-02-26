@@ -1,0 +1,44 @@
+@import './hud-effects.css';
+
+.text {
+  display: inline-block;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  transition: all 0.3s ease;
+}
+
+.small {
+  font-size: 0.75rem;
+}
+
+.medium {
+  font-size: 1rem;
+}
+
+.large {
+  font-size: 1.5rem;
+}
+
+.pulse {
+  animation: pulse 2s ease-in-out infinite;
+}
+
+.flicker {
+  animation: flicker 3s linear infinite;
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+  .small {
+    font-size: 0.625rem;
+  }
+  
+  .medium {
+    font-size: 0.875rem;
+  }
+  
+  .large {
+    font-size: 1.25rem;
+  }
+}

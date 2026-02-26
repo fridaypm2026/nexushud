@@ -1,0 +1,150 @@
+@import './hud-effects.css';
+
+.button {
+  position: relative;
+  padding: 0.75rem 2rem;
+  background: rgba(10, 10, 15, 0.9);
+  border: 1px solid var(--hud-primary);
+  color: var(--hud-primary);
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  cursor: pointer;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  clip-path: polygon(
+    8px 0, 
+    100% 0, 
+    100% calc(100% - 8px), 
+    calc(100% - 8px) 100%, 
+    0 100%, 
+    0 8px
+  );
+}
+
+.button::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--hud-primary);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.button:hover::before {
+  opacity: 0.1;
+}
+
+.button:hover {
+  box-shadow: 
+    0 0 20px var(--hud-primary),
+    inset 0 0 20px rgba(0, 212, 255, 0.2);
+  transform: translateY(-2px);
+}
+
+.button:active {
+  transform: translateY(0);
+  box-shadow: 
+    0 0 10px var(--hud-primary),
+    inset 0 0 10px rgba(0, 212, 255, 0.3);
+}
+
+.button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  transform: none !important;
+}
+
+.button:disabled:hover::before {
+  opacity: 0;
+}
+
+/* Variants */
+.secondary {
+  border-color: var(--hud-secondary);
+  color: var(--hud-secondary);
+}
+
+.secondary::before {
+  background: var(--hud-secondary);
+}
+
+.secondary:hover {
+  box-shadow: 
+    0 0 20px var(--hud-secondary),
+    inset 0 0 20px rgba(0, 102, 255, 0.2);
+}
+
+.accent {
+  border-color: var(--hud-accent);
+  color: var(--hud-accent);
+}
+
+.accent::before {
+  background: var(--hud-accent);
+}
+
+.accent:hover {
+  box-shadow: 
+    0 0 20px var(--hud-accent),
+    inset 0 0 20px rgba(255, 51, 102, 0.2);
+}
+
+/* Scanline effect */
+.scanline {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    rgba(0, 212, 255, 0.3) 50%,
+    transparent 100%
+  );
+  opacity: 0;
+  transform: translateY(-100%);
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.button:hover .scanline {
+  opacity: 1;
+  animation: scanline 1.5s ease-in-out infinite;
+}
+
+/* Content */
+.content {
+  position: relative;
+  z-index: 1;
+}
+
+/* Glow effect */
+.glow {
+  position: absolute;
+  inset: -2px;
+  border-radius: inherit;
+  opacity: 0;
+  background: radial-gradient(
+    circle at center,
+    var(--hud-primary),
+    transparent 70%
+  );
+  filter: blur(8px);
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.button:hover .glow {
+  opacity: 0.3;
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+  .button {
+    padding: 0.625rem 1.5rem;
+    font-size: 0.75rem;
+  }
+}

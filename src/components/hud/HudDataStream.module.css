@@ -1,0 +1,56 @@
+@import './hud-effects.css';
+
+.stream {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  font-family: 'Courier New', monospace;
+  font-size: 0.75rem;
+  color: var(--hud-primary);
+  overflow: hidden;
+  padding: 0.5rem;
+  max-height: 200px;
+}
+
+.line {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: clip;
+  opacity: 0;
+  animation: dataStream 2s ease-out forwards;
+  text-shadow: 0 0 8px var(--hud-primary);
+  letter-spacing: 0.05em;
+}
+
+.stream.slow .line {
+  animation-duration: 3s;
+}
+
+.stream.fast .line {
+  animation-duration: 1s;
+}
+
+/* Gradient fade effect */
+.stream::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 50%;
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    var(--hud-bg)
+  );
+  pointer-events: none;
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+  .stream {
+    font-size: 0.625rem;
+    max-height: 150px;
+  }
+}

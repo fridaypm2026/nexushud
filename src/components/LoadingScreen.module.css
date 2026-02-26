@@ -1,0 +1,294 @@
+.container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(ellipse at center, #0a0f1a 0%, #000000 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  overflow: hidden;
+}
+
+/* Arc Reactor */
+.arcReactor {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  margin-bottom: 3rem;
+}
+
+.arcCore {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+}
+
+.arcRing {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  border: 2px solid var(--color-accent-primary);
+  border-radius: 50%;
+  opacity: 0.6;
+  animation: arcPulse 2s ease-in-out infinite;
+  animation-delay: var(--delay, 0s);
+}
+
+@keyframes arcPulse {
+  0%, 100% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0.6;
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.2);
+    opacity: 0.2;
+  }
+}
+
+.arcCenter {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 60px;
+  height: 60px;
+  background: radial-gradient(
+    circle,
+    var(--color-accent-primary) 0%,
+    transparent 70%
+  );
+  border-radius: 50%;
+  animation: arcGlow 1.5s ease-in-out infinite;
+}
+
+@keyframes arcGlow {
+  0%, 100% {
+    box-shadow: 0 0 20px var(--color-accent-primary),
+                0 0 40px var(--color-accent-primary),
+                inset 0 0 20px var(--color-accent-primary);
+  }
+  50% {
+    box-shadow: 0 0 30px var(--color-accent-primary),
+                0 0 60px var(--color-accent-primary),
+                inset 0 0 30px var(--color-accent-primary);
+  }
+}
+
+.arcInner {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 30px;
+  height: 30px;
+  background: var(--color-accent-primary);
+  border-radius: 50%;
+  box-shadow: 0 0 10px var(--color-accent-primary),
+              0 0 20px var(--color-accent-primary),
+              0 0 30px var(--color-accent-primary);
+  animation: arcInnerPulse 1s ease-in-out infinite;
+}
+
+@keyframes arcInnerPulse {
+  0%, 100% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.1);
+  }
+}
+
+/* Arc segments (triangular pieces) */
+.arcSegment {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 80px;
+  height: 4px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    var(--color-accent-primary) 50%,
+    transparent 100%
+  );
+  transform-origin: 0% 50%;
+  animation: arcRotate 4s linear infinite;
+  opacity: 0.8;
+}
+
+@keyframes arcRotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Status text */
+.statusText {
+  font-size: 1.2rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-accent-primary);
+  text-shadow: 0 0 10px rgba(0, 212, 255, 0.5);
+  margin-bottom: 2rem;
+  text-align: center;
+  animation: textPulse 2s ease-in-out infinite;
+  font-family: 'Courier New', monospace;
+}
+
+@keyframes textPulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.6;
+  }
+}
+
+/* Progress bar */
+.progressContainer {
+  width: 400px;
+  max-width: 80vw;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.progressBar {
+  width: 100%;
+  height: 4px;
+  background: rgba(0, 212, 255, 0.1);
+  border: 1px solid rgba(0, 212, 255, 0.3);
+  border-radius: 2px;
+  overflow: hidden;
+  position: relative;
+}
+
+.progressFill {
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    var(--color-accent-primary),
+    var(--color-accent-secondary),
+    var(--color-accent-primary)
+  );
+  background-size: 200% 100%;
+  animation: progressShine 2s linear infinite;
+  box-shadow: 0 0 10px var(--color-accent-primary);
+  transition: width 0.3s ease;
+}
+
+@keyframes progressShine {
+  0% {
+    background-position: 0% 0%;
+  }
+  100% {
+    background-position: 200% 0%;
+  }
+}
+
+.progressPercent {
+  font-family: 'Courier New', monospace;
+  font-size: 0.9rem;
+  color: var(--color-accent-primary);
+  text-align: right;
+  letter-spacing: 0.1em;
+}
+
+/* Corner brackets */
+.cornerBracket {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  border: 2px solid var(--color-accent-primary);
+  opacity: 0.4;
+  animation: bracketPulse 2s ease-in-out infinite;
+}
+
+.cornerBracket[data-corner="tl"] {
+  top: 2rem;
+  left: 2rem;
+  border-right: none;
+  border-bottom: none;
+}
+
+.cornerBracket[data-corner="tr"] {
+  top: 2rem;
+  right: 2rem;
+  border-left: none;
+  border-bottom: none;
+}
+
+.cornerBracket[data-corner="bl"] {
+  bottom: 2rem;
+  left: 2rem;
+  border-right: none;
+  border-top: none;
+}
+
+.cornerBracket[data-corner="br"] {
+  bottom: 2rem;
+  right: 2rem;
+  border-left: none;
+  border-top: none;
+}
+
+@keyframes bracketPulse {
+  0%, 100% {
+    opacity: 0.4;
+  }
+  50% {
+    opacity: 0.8;
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .arcReactor {
+    width: 150px;
+    height: 150px;
+  }
+
+  .statusText {
+    font-size: 1rem;
+    padding: 0 1rem;
+  }
+
+  .cornerBracket {
+    width: 40px;
+    height: 40px;
+  }
+
+  .cornerBracket[data-corner="tl"],
+  .cornerBracket[data-corner="tr"] {
+    top: 1rem;
+  }
+
+  .cornerBracket[data-corner="bl"],
+  .cornerBracket[data-corner="br"] {
+    bottom: 1rem;
+  }
+
+  .cornerBracket[data-corner="tl"],
+  .cornerBracket[data-corner="bl"] {
+    left: 1rem;
+  }
+
+  .cornerBracket[data-corner="tr"],
+  .cornerBracket[data-corner="br"] {
+    right: 1rem;
+  }
+}

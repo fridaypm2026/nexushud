@@ -1,0 +1,55 @@
+@import './hud-effects.css';
+
+.ring {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.svg {
+  width: 100%;
+  height: 100%;
+  filter: drop-shadow(0 0 10px currentColor);
+}
+
+.outer {
+  fill: none;
+  stroke-width: 2;
+  stroke-dasharray: 200, 283;
+  stroke-linecap: round;
+  transform-origin: center;
+  animation: arcReactorSpin 2s linear infinite;
+}
+
+.middle {
+  fill: none;
+  stroke-width: 1;
+  opacity: 0.6;
+  stroke-dasharray: 100, 220;
+  stroke-linecap: round;
+  transform-origin: center;
+  animation: arcReactorSpin 3s linear infinite reverse;
+}
+
+.core {
+  opacity: 0.3;
+  animation: arcReactorPulse 1.5s ease-in-out infinite;
+}
+
+.arc {
+  fill: none;
+  stroke-width: 3;
+  opacity: 0.4;
+  stroke-dasharray: 50, 176;
+  stroke-linecap: round;
+  transform-origin: center;
+  animation: arcReactorSpin 1.5s linear infinite;
+}
+
+/* Mobile responsive - scale nicely */
+@media (max-width: 768px) {
+  .ring {
+    min-width: 40px;
+    min-height: 40px;
+  }
+}

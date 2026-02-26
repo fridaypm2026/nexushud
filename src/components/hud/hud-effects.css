@@ -1,0 +1,129 @@
+/* HUD Effects - Shared Keyframe Animations */
+
+:root {
+  --hud-primary: #00d4ff;
+  --hud-secondary: #0066ff;
+  --hud-accent: #ff3366;
+  --hud-bg: #0a0a0f;
+  --hud-glow-sm: 0 0 8px var(--hud-primary);
+  --hud-glow-md: 0 0 16px var(--hud-primary);
+  --hud-glow-lg: 0 0 24px var(--hud-primary);
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.7;
+    transform: scale(1.02);
+  }
+}
+
+@keyframes glow {
+  0%, 100% {
+    box-shadow: 
+      0 0 8px var(--hud-primary),
+      inset 0 0 8px var(--hud-primary);
+  }
+  50% {
+    box-shadow: 
+      0 0 20px var(--hud-primary),
+      inset 0 0 12px var(--hud-primary);
+  }
+}
+
+@keyframes scanline {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(100%);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes flicker {
+  0%, 100% {
+    opacity: 1;
+  }
+  41% {
+    opacity: 1;
+  }
+  43% {
+    opacity: 0.4;
+  }
+  45% {
+    opacity: 1;
+  }
+  47% {
+    opacity: 0.6;
+  }
+  49% {
+    opacity: 1;
+  }
+}
+
+@keyframes dataStream {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+}
+
+@keyframes arcReactorSpin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes arcReactorPulse {
+  0%, 100% {
+    box-shadow: 
+      0 0 10px var(--hud-primary),
+      0 0 20px var(--hud-primary),
+      0 0 30px var(--hud-primary);
+  }
+  50% {
+    box-shadow: 
+      0 0 20px var(--hud-primary),
+      0 0 40px var(--hud-primary),
+      0 0 60px var(--hud-primary);
+  }
+}
+
+@keyframes gridPulse {
+  0%, 100% {
+    opacity: 0.3;
+  }
+  50% {
+    opacity: 0.6;
+  }
+}

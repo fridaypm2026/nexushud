@@ -1,0 +1,176 @@
+@import './hud-effects.css';
+
+.panel {
+  position: relative;
+  background: rgba(10, 10, 15, 0.85);
+  border: 1px solid var(--hud-primary);
+  padding: 1.5rem;
+  animation: fadeIn 0.4s ease-out, slideUp 0.4s ease-out;
+  backdrop-filter: blur(8px);
+  box-shadow: 
+    0 0 20px rgba(0, 212, 255, 0.1),
+    inset 0 0 20px rgba(0, 212, 255, 0.05);
+}
+
+.panel.warning {
+  border-color: var(--hud-accent);
+  box-shadow: 
+    0 0 20px rgba(255, 51, 102, 0.15),
+    inset 0 0 20px rgba(255, 51, 102, 0.05);
+}
+
+.panel.warning .corner::before,
+.panel.warning .corner::after {
+  background: var(--hud-accent);
+  box-shadow: 0 0 8px var(--hud-accent);
+}
+
+.panel.success {
+  border-color: #00ff88;
+  box-shadow: 
+    0 0 20px rgba(0, 255, 136, 0.15),
+    inset 0 0 20px rgba(0, 255, 136, 0.05);
+}
+
+.panel.success .corner::before,
+.panel.success .corner::after {
+  background: #00ff88;
+  box-shadow: 0 0 8px #00ff88;
+}
+
+.corners {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.corner {
+  position: absolute;
+  width: 16px;
+  height: 16px;
+}
+
+.corner::before,
+.corner::after {
+  content: '';
+  position: absolute;
+  background: var(--hud-primary);
+  box-shadow: 0 0 8px var(--hud-primary);
+}
+
+.corner::before {
+  width: 2px;
+  height: 16px;
+}
+
+.corner::after {
+  width: 16px;
+  height: 2px;
+}
+
+.topLeft {
+  top: -1px;
+  left: -1px;
+}
+
+.topLeft::before {
+  left: 0;
+  top: 0;
+}
+
+.topLeft::after {
+  left: 0;
+  top: 0;
+}
+
+.topRight {
+  top: -1px;
+  right: -1px;
+}
+
+.topRight::before {
+  right: 0;
+  top: 0;
+}
+
+.topRight::after {
+  right: 0;
+  top: 0;
+}
+
+.bottomLeft {
+  bottom: -1px;
+  left: -1px;
+}
+
+.bottomLeft::before {
+  left: 0;
+  bottom: 0;
+}
+
+.bottomLeft::after {
+  left: 0;
+  bottom: 0;
+}
+
+.bottomRight {
+  bottom: -1px;
+  right: -1px;
+}
+
+.bottomRight::before {
+  right: 0;
+  bottom: 0;
+}
+
+.bottomRight::after {
+  right: 0;
+  bottom: 0;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid rgba(0, 212, 255, 0.3);
+}
+
+.titleBar {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--hud-primary),
+    transparent
+  );
+  animation: pulse 2s ease-in-out infinite;
+}
+
+.title {
+  margin: 0;
+  color: var(--hud-primary);
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  text-shadow: 0 0 10px var(--hud-primary);
+  white-space: nowrap;
+}
+
+.content {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+  .panel {
+    padding: 1rem;
+  }
+  
+  .title {
+    font-size: 0.75rem;
+  }
+}
