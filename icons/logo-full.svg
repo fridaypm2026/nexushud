@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 300" width="800" height="300">
+  <defs>
+    <linearGradient id="textGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#00d4ff;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#00aaff;stop-opacity:1" />
+    </linearGradient>
+    <radialGradient id="iconGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" style="stop-color:#ffffff;stop-opacity:0.8" />
+      <stop offset="30%" style="stop-color:#00d4ff;stop-opacity:0.6" />
+      <stop offset="100%" style="stop-color:#00d4ff;stop-opacity:0" />
+    </radialGradient>
+    <filter id="logoGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="800" height="300" fill="#0a0a0f"/>
+  
+  <!-- Icon section (scaled down version) -->
+  <g transform="translate(80, 150) scale(0.5)">
+    <!-- Glow -->
+    <circle cx="0" cy="0" r="120" fill="url(#iconGlow)" opacity="0.6"/>
+    
+    <!-- Hexagon -->
+    <path d="M 0 -80 L 69 -40 L 69 40 L 0 80 L -69 40 L -69 -40 Z" 
+          fill="none" 
+          stroke="#00d4ff" 
+          stroke-width="3" 
+          opacity="0.9"
+          filter="url(#logoGlow)"/>
+    
+    <!-- Arc reactor rings -->
+    <circle cx="0" cy="0" r="45" fill="none" stroke="#00d4ff" stroke-width="2" opacity="0.6"/>
+    <circle cx="0" cy="0" r="35" fill="none" stroke="#00d4ff" stroke-width="1.5" opacity="0.7"/>
+    
+    <!-- Core -->
+    <circle cx="0" cy="0" r="18" fill="#00d4ff" opacity="0.8" filter="url(#logoGlow)"/>
+    
+    <!-- N shape -->
+    <line x1="-30" y1="-15" x2="-30" y2="15" stroke="#00d4ff" stroke-width="4" stroke-linecap="round"/>
+    <line x1="-30" y1="-15" x2="30" y2="15" stroke="#00d4ff" stroke-width="3" stroke-linecap="round" opacity="0.8"/>
+    <line x1="30" y1="-15" x2="30" y2="15" stroke="#00d4ff" stroke-width="4" stroke-linecap="round"/>
+  </g>
+  
+  <!-- COLDPIKE text -->
+  <g transform="translate(220, 155)">
+    <text x="0" y="0" 
+          font-family="'Arial Black', 'Impact', sans-serif" 
+          font-size="70" 
+          font-weight="900" 
+          fill="url(#textGrad)" 
+          letter-spacing="8"
+          filter="url(#logoGlow)">COLDPIKE</text>
+  </g>
+  
+  <!-- Subtitle -->
+  <g transform="translate(222, 215)">
+    <text x="0" y="0" 
+          font-family="'Arial', sans-serif" 
+          font-size="16" 
+          font-weight="400" 
+          fill="#00d4ff" 
+          letter-spacing="3"
+          opacity="0.7">AI COMMAND CENTER</text>
+  </g>
+  
+  <!-- Decorative lines -->
+  <line x1="200" y1="150" x2="180" y2="150" stroke="#00d4ff" stroke-width="2" opacity="0.5"/>
+  <line x1="560" y1="150" x2="720" y2="150" stroke="#00d4ff" stroke-width="1" opacity="0.3"/>
+</svg>

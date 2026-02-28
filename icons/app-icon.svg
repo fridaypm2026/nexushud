@@ -1,0 +1,92 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <!-- Gradient definitions for depth -->
+    <linearGradient id="hexGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#00d4ff;stop-opacity:0.3" />
+      <stop offset="100%" style="stop-color:#00d4ff;stop-opacity:0.1" />
+    </linearGradient>
+    <radialGradient id="glowGrad" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" style="stop-color:#00d4ff;stop-opacity:0.8" />
+      <stop offset="50%" style="stop-color:#00d4ff;stop-opacity:0.3" />
+      <stop offset="100%" style="stop-color:#00d4ff;stop-opacity:0" />
+    </radialGradient>
+    <radialGradient id="coreGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" style="stop-color:#ffffff;stop-opacity:1" />
+      <stop offset="30%" style="stop-color:#00d4ff;stop-opacity:0.9" />
+      <stop offset="100%" style="stop-color:#0088cc;stop-opacity:0.5" />
+    </radialGradient>
+    <!-- Filter for outer glow -->
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="8" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Dark background -->
+  <rect width="512" height="512" fill="#0a0a0f"/>
+  
+  <!-- Outer glow circle -->
+  <circle cx="256" cy="256" r="200" fill="url(#glowGrad)" opacity="0.5"/>
+  
+  <!-- Hexagon outer frame -->
+  <path d="M 256 70 L 370 142.5 L 370 287.5 L 256 360 L 142 287.5 L 142 142.5 Z" 
+        fill="none" 
+        stroke="#00d4ff" 
+        stroke-width="3" 
+        opacity="0.8"
+        filter="url(#glow)"/>
+  
+  <!-- Inner hexagon -->
+  <path d="M 256 100 L 350 157.5 L 350 272.5 L 256 330 L 162 272.5 L 162 157.5 Z" 
+        fill="url(#hexGrad)" 
+        stroke="#00d4ff" 
+        stroke-width="2" 
+        opacity="0.5"/>
+  
+  <!-- Arc reactor core rings -->
+  <circle cx="256" cy="215" r="65" fill="none" stroke="#00d4ff" stroke-width="2" opacity="0.6"/>
+  <circle cx="256" cy="215" r="52" fill="none" stroke="#00d4ff" stroke-width="1.5" opacity="0.7"/>
+  <circle cx="256" cy="215" r="40" fill="none" stroke="#00d4ff" stroke-width="2" opacity="0.8"/>
+  
+  <!-- Central core -->
+  <circle cx="256" cy="215" r="25" fill="url(#coreGlow)" filter="url(#glow)"/>
+  
+  <!-- Stylized "N" neural network pattern -->
+  <!-- Left vertical line of N -->
+  <line x1="195" y1="190" x2="195" y2="240" stroke="#00d4ff" stroke-width="4" stroke-linecap="round" opacity="0.9"/>
+  
+  <!-- Neural network nodes (left side) -->
+  <circle cx="195" cy="190" r="5" fill="#00d4ff" opacity="0.9"/>
+  <circle cx="195" cy="215" r="5" fill="#00d4ff" opacity="0.9"/>
+  <circle cx="195" cy="240" r="5" fill="#00d4ff" opacity="0.9"/>
+  
+  <!-- Diagonal connector with glow -->
+  <line x1="195" y1="190" x2="317" y2="240" stroke="#00d4ff" stroke-width="3" stroke-linecap="round" opacity="0.7" filter="url(#glow)"/>
+  
+  <!-- Right vertical line of N -->
+  <line x1="317" y1="190" x2="317" y2="240" stroke="#00d4ff" stroke-width="4" stroke-linecap="round" opacity="0.9"/>
+  
+  <!-- Neural network nodes (right side) -->
+  <circle cx="317" cy="190" r="5" fill="#00d4ff" opacity="0.9"/>
+  <circle cx="317" cy="215" r="5" fill="#00d4ff" opacity="0.9"/>
+  <circle cx="317" cy="240" r="5" fill="#00d4ff" opacity="0.9"/>
+  
+  <!-- Connecting neural paths -->
+  <line x1="195" y1="215" x2="220" y2="215" stroke="#00d4ff" stroke-width="1.5" opacity="0.5"/>
+  <line x1="292" y1="215" x2="317" y2="215" stroke="#00d4ff" stroke-width="1.5" opacity="0.5"/>
+  
+  <!-- Arc reactor energy beams -->
+  <line x1="256" y1="215" x2="256" y2="165" stroke="#00d4ff" stroke-width="2" opacity="0.4" stroke-linecap="round"/>
+  <line x1="256" y1="215" x2="256" y2="265" stroke="#00d4ff" stroke-width="2" opacity="0.4" stroke-linecap="round"/>
+  <line x1="256" y1="215" x2="306" y2="215" stroke="#00d4ff" stroke-width="2" opacity="0.4" stroke-linecap="round"/>
+  <line x1="256" y1="215" x2="206" y2="215" stroke="#00d4ff" stroke-width="2" opacity="0.4" stroke-linecap="round"/>
+  
+  <!-- Corner accent lines (hexagon reinforcement) -->
+  <line x1="142" y1="142.5" x2="162" y2="157.5" stroke="#00d4ff" stroke-width="1.5" opacity="0.6"/>
+  <line x1="370" y1="142.5" x2="350" y2="157.5" stroke="#00d4ff" stroke-width="1.5" opacity="0.6"/>
+  <line x1="370" y1="287.5" x2="350" y2="272.5" stroke="#00d4ff" stroke-width="1.5" opacity="0.6"/>
+  <line x1="142" y1="287.5" x2="162" y2="272.5" stroke="#00d4ff" stroke-width="1.5" opacity="0.6"/>
+</svg>
